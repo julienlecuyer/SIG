@@ -5,40 +5,22 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>sig.ecore</foreignModel>
   <genPackages prefix="Sig" disposableProviderFactory="true" ecorePackage="sig.ecore#/">
-    <genDataTypes ecoreDataType="sig.ecore#//EPoint"/>
     <genClasses ecoreClass="sig.ecore#//Ville">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Ville/batiments"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Ville/nom"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Ville/zone"/>
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Batiment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Batiment/adresse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Batiment/liaisons"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Batiment/zone"/>
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Travail"/>
     <genClasses ecoreClass="sig.ecore#//Etude"/>
     <genClasses ecoreClass="sig.ecore#//Soins"/>
     <genClasses ecoreClass="sig.ecore#//Monde">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Monde/villes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Monde/zone"/>
-    </genClasses>
-    <genClasses ecoreClass="sig.ecore#//Zone">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Zone/no"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Zone/se"/>
-      <genOperations ecoreOperation="sig.ecore#//Zone/estDedans">
-        <genParameters ecoreParameter="sig.ecore#//Zone/estDedans/point"/>
-      </genOperations>
-      <genOperations ecoreOperation="sig.ecore#//Zone/estDedans.1"/>
-    </genClasses>
-    <genClasses ecoreClass="sig.ecore#//Liaison">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Liaison/estDedans"/>
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Personne">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Personne/nom"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Personne/statut"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Personne/liaisons"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Personne/pos"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
