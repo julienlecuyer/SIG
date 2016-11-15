@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sig" nsURI="http://fr.ubo.jl.sig" nsPrefix="sig">
+  <eClassifiers xsi:type="ecore:EClass" name="Ville">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="batiments" upperBound="-1"
+        eType="#//Batiment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zone" lowerBound="1" eType="#//Zone"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Batiment" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adresse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="liaisons" upperBound="-1"
+        eType="#//Liaison" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zone" lowerBound="1" eType="#//Zone"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Travail" eSuperTypes="#//Batiment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Etude" eSuperTypes="#//Batiment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Soins" eSuperTypes="#//Batiment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Monde">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="villes" upperBound="-1"
+        eType="#//Ville" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="zone" lowerBound="1" eType="#//Zone"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EPoint" instanceClassName="java.awt.Point"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Zone">
+    <eOperations name="estDedans" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="point" eType="#//EPoint"/>
+    </eOperations>
+    <eOperations name="estDedans" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no" eType="#//EPoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="se" eType="#//EPoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Liaison">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estDedans" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Personne">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="liaisons" upperBound="-1"
+        eType="#//Liaison" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pos" eType="#//EPoint"/>
+  </eClassifiers>
+</ecore:EPackage>
