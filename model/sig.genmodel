@@ -11,16 +11,19 @@
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Batiment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Batiment/adresse"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sig.ecore#//Batiment/personnes"/>
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Travail"/>
     <genClasses ecoreClass="sig.ecore#//Etude"/>
     <genClasses ecoreClass="sig.ecore#//Soins"/>
     <genClasses ecoreClass="sig.ecore#//Monde">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Monde/villes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Monde/personnes"/>
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Personne">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Personne/nom"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Personne/statut"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sig.ecore#//Personne/batiments"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
