@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="ASCII"?>
-<sig:Monde xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sig="http://fr.ubo.jl.sig" xsi:schemaLocation="http://fr.ubo.jl.sig sig.ecore">
+<sig:Monde xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sig="http://fr.ubo.jl.sig"
+    xsi:schemaLocation="http://fr.ubo.jl.sig sig.ecore">
   <villes nom="Brest">
-    <batiments xsi:type="sig:Travail" adresse="Triskalia"/>
-    <batiments xsi:type="sig:Travail" adresse="CGI"/>
-    <batiments xsi:type="sig:Etude" adresse="UBO"/>
-    <batiments xsi:type="sig:Etude" adresse="IUT"/>
-    <batiments xsi:type="sig:Soins" adresse="Hopital"/>
-    <batiments xsi:type="sig:Soins" adresse="Medecn"/>
+    <batiments
+        xsi:type="sig:Travail"
+        adresse="Triskalia"/>
+    <batiments
+        xsi:type="sig:Travail"
+        adresse="CGI"
+        personnes="//@personnes.0"/>
+    <batiments
+        xsi:type="sig:Etude"
+        adresse="UBO"/>
+    <batiments
+        xsi:type="sig:Etude"
+        adresse="IUT"/>
+    <batiments
+        xsi:type="sig:Soins"
+        adresse="Hopital"
+        personnes="//@personnes.0"/>
+    <batiments
+        xsi:type="sig:Soins"
+        adresse="Medecn"
+        personnes="//@personnes.0"/>
   </villes>
   <villes nom="Paris"/>
+  <personnes
+      nom="Julien"
+      batiments="//@villes.0/@batiments.1 //@villes.0/@batiments.4 //@villes.0/@batiments.5"/>
 </sig:Monde>
