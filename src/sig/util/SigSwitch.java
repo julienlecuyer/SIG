@@ -105,18 +105,6 @@ public class SigSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SigPackage.ZONE: {
-				Zone zone = (Zone)theEObject;
-				T result = caseZone(zone);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SigPackage.LIAISON: {
-				Liaison liaison = (Liaison)theEObject;
-				T result = caseLiaison(liaison);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SigPackage.PERSONNE: {
 				Personne personne = (Personne)theEObject;
 				T result = casePersonne(personne);
@@ -214,36 +202,6 @@ public class SigSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMonde(Monde object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Zone</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Zone</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseZone(Zone object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Liaison</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Liaison</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLiaison(Liaison object) {
 		return null;
 	}
 

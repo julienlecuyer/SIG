@@ -2,10 +2,7 @@
  */
 package sig.impl;
 
-import java.awt.Point;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -64,41 +61,9 @@ public class SigFactoryImpl extends EFactoryImpl implements SigFactory {
 			case SigPackage.ETUDE: return createEtude();
 			case SigPackage.SOINS: return createSoins();
 			case SigPackage.MONDE: return createMonde();
-			case SigPackage.ZONE: return createZone();
-			case SigPackage.LIAISON: return createLiaison();
 			case SigPackage.PERSONNE: return createPersonne();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case SigPackage.EPOINT:
-				return createEPointFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case SigPackage.EPOINT:
-				return convertEPointToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -157,47 +122,9 @@ public class SigFactoryImpl extends EFactoryImpl implements SigFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Zone createZone() {
-		ZoneImpl zone = new ZoneImpl();
-		return zone;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Liaison createLiaison() {
-		LiaisonImpl liaison = new LiaisonImpl();
-		return liaison;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Personne createPersonne() {
 		PersonneImpl personne = new PersonneImpl();
 		return personne;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Point createEPointFromString(EDataType eDataType, String initialValue) {
-		return (Point)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEPointToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

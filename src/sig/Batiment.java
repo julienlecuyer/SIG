@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link sig.Batiment#getAdresse <em>Adresse</em>}</li>
- *   <li>{@link sig.Batiment#getLiaisons <em>Liaisons</em>}</li>
- *   <li>{@link sig.Batiment#getZone <em>Zone</em>}</li>
+ *   <li>{@link sig.Batiment#getPersonnes <em>Personnes</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,45 +51,21 @@ public interface Batiment extends EObject {
 	void setAdresse(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Liaisons</b></em>' containment reference list.
-	 * The list contents are of type {@link sig.Liaison}.
+	 * Returns the value of the '<em><b>Personnes</b></em>' reference list.
+	 * The list contents are of type {@link sig.Personne}.
+	 * It is bidirectional and its opposite is '{@link sig.Personne#getBatiments <em>Batiments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Liaisons</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Personnes</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Liaisons</em>' containment reference list.
-	 * @see sig.SigPackage#getBatiment_Liaisons()
-	 * @model containment="true"
+	 * @return the value of the '<em>Personnes</em>' reference list.
+	 * @see sig.SigPackage#getBatiment_Personnes()
+	 * @see sig.Personne#getBatiments
+	 * @model opposite="batiments"
 	 * @generated
 	 */
-	EList<Liaison> getLiaisons();
-
-	/**
-	 * Returns the value of the '<em><b>Zone</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Zone</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Zone</em>' containment reference.
-	 * @see #setZone(Zone)
-	 * @see sig.SigPackage#getBatiment_Zone()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Zone getZone();
-
-	/**
-	 * Sets the value of the '{@link sig.Batiment#getZone <em>Zone</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Zone</em>' containment reference.
-	 * @see #getZone()
-	 * @generated
-	 */
-	void setZone(Zone value);
+	EList<Personne> getPersonnes();
 
 } // Batiment

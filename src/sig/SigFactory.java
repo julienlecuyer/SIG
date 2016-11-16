@@ -67,24 +67,6 @@ public interface SigFactory extends EFactory {
 	Monde createMonde();
 
 	/**
-	 * Returns a new object of class '<em>Zone</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Zone</em>'.
-	 * @generated
-	 */
-	Zone createZone();
-
-	/**
-	 * Returns a new object of class '<em>Liaison</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Liaison</em>'.
-	 * @generated
-	 */
-	Liaison createLiaison();
-
-	/**
 	 * Returns a new object of class '<em>Personne</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

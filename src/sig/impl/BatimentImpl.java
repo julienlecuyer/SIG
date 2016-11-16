@@ -15,13 +15,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sig.Batiment;
-import sig.Liaison;
+import sig.Personne;
 import sig.SigPackage;
-import sig.Zone;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +30,7 @@ import sig.Zone;
  * The following features are implemented:
  * <ul>
  *   <li>{@link sig.impl.BatimentImpl#getAdresse <em>Adresse</em>}</li>
- *   <li>{@link sig.impl.BatimentImpl#getLiaisons <em>Liaisons</em>}</li>
- *   <li>{@link sig.impl.BatimentImpl#getZone <em>Zone</em>}</li>
+ *   <li>{@link sig.impl.BatimentImpl#getPersonnes <em>Personnes</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,24 +58,14 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 	protected String adresse = ADRESSE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLiaisons() <em>Liaisons</em>}' containment reference list.
+	 * The cached value of the '{@link #getPersonnes() <em>Personnes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLiaisons()
+	 * @see #getPersonnes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Liaison> liaisons;
-
-	/**
-	 * The cached value of the '{@link #getZone() <em>Zone</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getZone()
-	 * @generated
-	 * @ordered
-	 */
-	protected Zone zone;
+	protected EList<Personne> personnes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,11 +112,11 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Liaison> getLiaisons() {
-		if (liaisons == null) {
-			liaisons = new EObjectContainmentEList<Liaison>(Liaison.class, this, SigPackage.BATIMENT__LIAISONS);
+	public EList<Personne> getPersonnes() {
+		if (personnes == null) {
+			personnes = new EObjectWithInverseResolvingEList.ManyInverse<Personne>(Personne.class, this, SigPackage.BATIMENT__PERSONNES, SigPackage.PERSONNE__BATIMENTS);
 		}
-		return liaisons;
+		return personnes;
 	}
 
 	/**
@@ -136,42 +124,14 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Zone getZone() {
-		return zone;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetZone(Zone newZone, NotificationChain msgs) {
-		Zone oldZone = zone;
-		zone = newZone;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SigPackage.BATIMENT__ZONE, oldZone, newZone);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SigPackage.BATIMENT__PERSONNES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPersonnes()).basicAdd(otherEnd, msgs);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setZone(Zone newZone) {
-		if (newZone != zone) {
-			NotificationChain msgs = null;
-			if (zone != null)
-				msgs = ((InternalEObject)zone).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SigPackage.BATIMENT__ZONE, null, msgs);
-			if (newZone != null)
-				msgs = ((InternalEObject)newZone).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SigPackage.BATIMENT__ZONE, null, msgs);
-			msgs = basicSetZone(newZone, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SigPackage.BATIMENT__ZONE, newZone, newZone));
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -182,10 +142,8 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SigPackage.BATIMENT__LIAISONS:
-				return ((InternalEList<?>)getLiaisons()).basicRemove(otherEnd, msgs);
-			case SigPackage.BATIMENT__ZONE:
-				return basicSetZone(null, msgs);
+			case SigPackage.BATIMENT__PERSONNES:
+				return ((InternalEList<?>)getPersonnes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,10 +158,8 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case SigPackage.BATIMENT__ADRESSE:
 				return getAdresse();
-			case SigPackage.BATIMENT__LIAISONS:
-				return getLiaisons();
-			case SigPackage.BATIMENT__ZONE:
-				return getZone();
+			case SigPackage.BATIMENT__PERSONNES:
+				return getPersonnes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -220,12 +176,9 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 			case SigPackage.BATIMENT__ADRESSE:
 				setAdresse((String)newValue);
 				return;
-			case SigPackage.BATIMENT__LIAISONS:
-				getLiaisons().clear();
-				getLiaisons().addAll((Collection<? extends Liaison>)newValue);
-				return;
-			case SigPackage.BATIMENT__ZONE:
-				setZone((Zone)newValue);
+			case SigPackage.BATIMENT__PERSONNES:
+				getPersonnes().clear();
+				getPersonnes().addAll((Collection<? extends Personne>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -242,11 +195,8 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 			case SigPackage.BATIMENT__ADRESSE:
 				setAdresse(ADRESSE_EDEFAULT);
 				return;
-			case SigPackage.BATIMENT__LIAISONS:
-				getLiaisons().clear();
-				return;
-			case SigPackage.BATIMENT__ZONE:
-				setZone((Zone)null);
+			case SigPackage.BATIMENT__PERSONNES:
+				getPersonnes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -262,10 +212,8 @@ public abstract class BatimentImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case SigPackage.BATIMENT__ADRESSE:
 				return ADRESSE_EDEFAULT == null ? adresse != null : !ADRESSE_EDEFAULT.equals(adresse);
-			case SigPackage.BATIMENT__LIAISONS:
-				return liaisons != null && !liaisons.isEmpty();
-			case SigPackage.BATIMENT__ZONE:
-				return zone != null;
+			case SigPackage.BATIMENT__PERSONNES:
+				return personnes != null && !personnes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

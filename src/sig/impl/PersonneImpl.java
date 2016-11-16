@@ -2,8 +2,6 @@
  */
 package sig.impl;
 
-import java.awt.Point;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -17,10 +15,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import sig.Liaison;
+import sig.Batiment;
 import sig.Personne;
 import sig.SigPackage;
 
@@ -33,8 +31,7 @@ import sig.SigPackage;
  * <ul>
  *   <li>{@link sig.impl.PersonneImpl#getNom <em>Nom</em>}</li>
  *   <li>{@link sig.impl.PersonneImpl#getStatut <em>Statut</em>}</li>
- *   <li>{@link sig.impl.PersonneImpl#getLiaisons <em>Liaisons</em>}</li>
- *   <li>{@link sig.impl.PersonneImpl#getPos <em>Pos</em>}</li>
+ *   <li>{@link sig.impl.PersonneImpl#getBatiments <em>Batiments</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,34 +79,14 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 	protected String statut = STATUT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLiaisons() <em>Liaisons</em>}' containment reference list.
+	 * The cached value of the '{@link #getBatiments() <em>Batiments</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLiaisons()
+	 * @see #getBatiments()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Liaison> liaisons;
-
-	/**
-	 * The default value of the '{@link #getPos() <em>Pos</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPos()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Point POS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPos() <em>Pos</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPos()
-	 * @generated
-	 * @ordered
-	 */
-	protected Point pos = POS_EDEFAULT;
+	protected EList<Batiment> batiments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,11 +154,11 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Liaison> getLiaisons() {
-		if (liaisons == null) {
-			liaisons = new EObjectContainmentEList<Liaison>(Liaison.class, this, SigPackage.PERSONNE__LIAISONS);
+	public EList<Batiment> getBatiments() {
+		if (batiments == null) {
+			batiments = new EObjectWithInverseResolvingEList.ManyInverse<Batiment>(Batiment.class, this, SigPackage.PERSONNE__BATIMENTS, SigPackage.BATIMENT__PERSONNES);
 		}
-		return liaisons;
+		return batiments;
 	}
 
 	/**
@@ -189,20 +166,14 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Point getPos() {
-		return pos;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPos(Point newPos) {
-		Point oldPos = pos;
-		pos = newPos;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SigPackage.PERSONNE__POS, oldPos, pos));
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SigPackage.PERSONNE__BATIMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBatiments()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -213,8 +184,8 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SigPackage.PERSONNE__LIAISONS:
-				return ((InternalEList<?>)getLiaisons()).basicRemove(otherEnd, msgs);
+			case SigPackage.PERSONNE__BATIMENTS:
+				return ((InternalEList<?>)getBatiments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -231,10 +202,8 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 				return getNom();
 			case SigPackage.PERSONNE__STATUT:
 				return getStatut();
-			case SigPackage.PERSONNE__LIAISONS:
-				return getLiaisons();
-			case SigPackage.PERSONNE__POS:
-				return getPos();
+			case SigPackage.PERSONNE__BATIMENTS:
+				return getBatiments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,12 +223,9 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 			case SigPackage.PERSONNE__STATUT:
 				setStatut((String)newValue);
 				return;
-			case SigPackage.PERSONNE__LIAISONS:
-				getLiaisons().clear();
-				getLiaisons().addAll((Collection<? extends Liaison>)newValue);
-				return;
-			case SigPackage.PERSONNE__POS:
-				setPos((Point)newValue);
+			case SigPackage.PERSONNE__BATIMENTS:
+				getBatiments().clear();
+				getBatiments().addAll((Collection<? extends Batiment>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,11 +245,8 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 			case SigPackage.PERSONNE__STATUT:
 				setStatut(STATUT_EDEFAULT);
 				return;
-			case SigPackage.PERSONNE__LIAISONS:
-				getLiaisons().clear();
-				return;
-			case SigPackage.PERSONNE__POS:
-				setPos(POS_EDEFAULT);
+			case SigPackage.PERSONNE__BATIMENTS:
+				getBatiments().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -301,10 +264,8 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 				return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
 			case SigPackage.PERSONNE__STATUT:
 				return STATUT_EDEFAULT == null ? statut != null : !STATUT_EDEFAULT.equals(statut);
-			case SigPackage.PERSONNE__LIAISONS:
-				return liaisons != null && !liaisons.isEmpty();
-			case SigPackage.PERSONNE__POS:
-				return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
+			case SigPackage.PERSONNE__BATIMENTS:
+				return batiments != null && !batiments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -323,8 +284,6 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
 		result.append(nom);
 		result.append(", statut: ");
 		result.append(statut);
-		result.append(", pos: ");
-		result.append(pos);
 		result.append(')');
 		return result.toString();
 	}

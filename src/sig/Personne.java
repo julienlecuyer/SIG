@@ -2,8 +2,6 @@
  */
 package sig;
 
-import java.awt.Point;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -18,8 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link sig.Personne#getNom <em>Nom</em>}</li>
  *   <li>{@link sig.Personne#getStatut <em>Statut</em>}</li>
- *   <li>{@link sig.Personne#getLiaisons <em>Liaisons</em>}</li>
- *   <li>{@link sig.Personne#getPos <em>Pos</em>}</li>
+ *   <li>{@link sig.Personne#getBatiments <em>Batiments</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,45 +78,21 @@ public interface Personne extends EObject {
 	void setStatut(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Liaisons</b></em>' containment reference list.
-	 * The list contents are of type {@link sig.Liaison}.
+	 * Returns the value of the '<em><b>Batiments</b></em>' reference list.
+	 * The list contents are of type {@link sig.Batiment}.
+	 * It is bidirectional and its opposite is '{@link sig.Batiment#getPersonnes <em>Personnes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Liaisons</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Batiments</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Liaisons</em>' containment reference list.
-	 * @see sig.SigPackage#getPersonne_Liaisons()
-	 * @model containment="true"
+	 * @return the value of the '<em>Batiments</em>' reference list.
+	 * @see sig.SigPackage#getPersonne_Batiments()
+	 * @see sig.Batiment#getPersonnes
+	 * @model opposite="personnes"
 	 * @generated
 	 */
-	EList<Liaison> getLiaisons();
-
-	/**
-	 * Returns the value of the '<em><b>Pos</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pos</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pos</em>' attribute.
-	 * @see #setPos(Point)
-	 * @see sig.SigPackage#getPersonne_Pos()
-	 * @model dataType="sig.EPoint"
-	 * @generated
-	 */
-	Point getPos();
-
-	/**
-	 * Sets the value of the '{@link sig.Personne#getPos <em>Pos</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pos</em>' attribute.
-	 * @see #getPos()
-	 * @generated
-	 */
-	void setPos(Point value);
+	EList<Batiment> getBatiments();
 
 } // Personne

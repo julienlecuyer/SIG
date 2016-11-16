@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link sig.Ville#getBatiments <em>Batiments</em>}</li>
  *   <li>{@link sig.Ville#getNom <em>Nom</em>}</li>
- *   <li>{@link sig.Ville#getZone <em>Zone</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,31 +65,5 @@ public interface Ville extends EObject {
 	 * @generated
 	 */
 	void setNom(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Zone</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Zone</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Zone</em>' containment reference.
-	 * @see #setZone(Zone)
-	 * @see sig.SigPackage#getVille_Zone()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Zone getZone();
-
-	/**
-	 * Sets the value of the '{@link sig.Ville#getZone <em>Zone</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Zone</em>' containment reference.
-	 * @see #getZone()
-	 * @generated
-	 */
-	void setZone(Zone value);
 
 } // Ville

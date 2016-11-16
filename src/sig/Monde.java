@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link sig.Monde#getVilles <em>Villes</em>}</li>
- *   <li>{@link sig.Monde#getZone <em>Zone</em>}</li>
+ *   <li>{@link sig.Monde#getPersonnes <em>Personnes</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,29 +41,19 @@ public interface Monde extends EObject {
 	EList<Ville> getVilles();
 
 	/**
-	 * Returns the value of the '<em><b>Zone</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Personnes</b></em>' containment reference list.
+	 * The list contents are of type {@link sig.Personne}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Zone</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Personnes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Zone</em>' containment reference.
-	 * @see #setZone(Zone)
-	 * @see sig.SigPackage#getMonde_Zone()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Personnes</em>' containment reference list.
+	 * @see sig.SigPackage#getMonde_Personnes()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Zone getZone();
-
-	/**
-	 * Sets the value of the '{@link sig.Monde#getZone <em>Zone</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Zone</em>' containment reference.
-	 * @see #getZone()
-	 * @generated
-	 */
-	void setZone(Zone value);
+	EList<Personne> getPersonnes();
 
 } // Monde

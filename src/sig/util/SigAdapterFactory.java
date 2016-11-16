@@ -92,14 +92,6 @@ public class SigAdapterFactory extends AdapterFactoryImpl {
 				return createMondeAdapter();
 			}
 			@Override
-			public Adapter caseZone(Zone object) {
-				return createZoneAdapter();
-			}
-			@Override
-			public Adapter caseLiaison(Liaison object) {
-				return createLiaisonAdapter();
-			}
-			@Override
 			public Adapter casePersonne(Personne object) {
 				return createPersonneAdapter();
 			}
@@ -204,34 +196,6 @@ public class SigAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMondeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sig.Zone <em>Zone</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sig.Zone
-	 * @generated
-	 */
-	public Adapter createZoneAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link sig.Liaison <em>Liaison</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see sig.Liaison
-	 * @generated
-	 */
-	public Adapter createLiaisonAdapter() {
 		return null;
 	}
 

@@ -2,11 +2,8 @@
  */
 package sig.impl;
 
-import java.awt.Point;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -14,7 +11,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sig.Batiment;
 import sig.Etude;
-import sig.Liaison;
 import sig.Monde;
 import sig.Personne;
 import sig.SigFactory;
@@ -22,7 +18,6 @@ import sig.SigPackage;
 import sig.Soins;
 import sig.Travail;
 import sig.Ville;
-import sig.Zone;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,28 +73,7 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass zoneEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass liaisonEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass personneEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType ePointEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -194,15 +168,6 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVille_Zone() {
-		return (EReference)villeEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBatiment() {
 		return batimentEClass;
 	}
@@ -221,17 +186,8 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBatiment_Liaisons() {
+	public EReference getBatiment_Personnes() {
 		return (EReference)batimentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBatiment_Zone() {
-		return (EReference)batimentEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -284,53 +240,8 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMonde_Zone() {
+	public EReference getMonde_Personnes() {
 		return (EReference)mondeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getZone() {
-		return zoneEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getZone_No() {
-		return (EAttribute)zoneEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getZone_Se() {
-		return (EAttribute)zoneEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLiaison() {
-		return liaisonEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLiaison_EstDedans() {
-		return (EAttribute)liaisonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -365,26 +276,8 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPersonne_Liaisons() {
+	public EReference getPersonne_Batiments() {
 		return (EReference)personneEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPersonne_Pos() {
-		return (EAttribute)personneEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getEPoint() {
-		return ePointEDataType;
 	}
 
 	/**
@@ -418,12 +311,10 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 		villeEClass = createEClass(VILLE);
 		createEReference(villeEClass, VILLE__BATIMENTS);
 		createEAttribute(villeEClass, VILLE__NOM);
-		createEReference(villeEClass, VILLE__ZONE);
 
 		batimentEClass = createEClass(BATIMENT);
 		createEAttribute(batimentEClass, BATIMENT__ADRESSE);
-		createEReference(batimentEClass, BATIMENT__LIAISONS);
-		createEReference(batimentEClass, BATIMENT__ZONE);
+		createEReference(batimentEClass, BATIMENT__PERSONNES);
 
 		travailEClass = createEClass(TRAVAIL);
 
@@ -433,23 +324,12 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 
 		mondeEClass = createEClass(MONDE);
 		createEReference(mondeEClass, MONDE__VILLES);
-		createEReference(mondeEClass, MONDE__ZONE);
-
-		zoneEClass = createEClass(ZONE);
-		createEAttribute(zoneEClass, ZONE__NO);
-		createEAttribute(zoneEClass, ZONE__SE);
-
-		liaisonEClass = createEClass(LIAISON);
-		createEAttribute(liaisonEClass, LIAISON__EST_DEDANS);
+		createEReference(mondeEClass, MONDE__PERSONNES);
 
 		personneEClass = createEClass(PERSONNE);
 		createEAttribute(personneEClass, PERSONNE__NOM);
 		createEAttribute(personneEClass, PERSONNE__STATUT);
-		createEReference(personneEClass, PERSONNE__LIAISONS);
-		createEAttribute(personneEClass, PERSONNE__POS);
-
-		// Create data types
-		ePointEDataType = createEDataType(EPOINT);
+		createEReference(personneEClass, PERSONNE__BATIMENTS);
 	}
 
 	/**
@@ -488,12 +368,10 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 		initEClass(villeEClass, Ville.class, "Ville", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVille_Batiments(), this.getBatiment(), null, "batiments", null, 0, -1, Ville.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVille_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Ville.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVille_Zone(), this.getZone(), null, "zone", null, 1, 1, Ville.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(batimentEClass, Batiment.class, "Batiment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBatiment_Adresse(), ecorePackage.getEString(), "adresse", null, 0, 1, Batiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBatiment_Liaisons(), this.getLiaison(), null, "liaisons", null, 0, -1, Batiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBatiment_Zone(), this.getZone(), null, "zone", null, 1, 1, Batiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBatiment_Personnes(), this.getPersonne(), this.getPersonne_Batiments(), "personnes", null, 0, -1, Batiment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(travailEClass, Travail.class, "Travail", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -503,23 +381,12 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 
 		initEClass(mondeEClass, Monde.class, "Monde", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMonde_Villes(), this.getVille(), null, "villes", null, 0, -1, Monde.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMonde_Zone(), this.getZone(), null, "zone", null, 1, 1, Monde.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(zoneEClass, Zone.class, "Zone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getZone_No(), this.getEPoint(), "no", null, 0, 1, Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getZone_Se(), this.getEPoint(), "se", null, 0, 1, Zone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(liaisonEClass, Liaison.class, "Liaison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLiaison_EstDedans(), ecorePackage.getEBoolean(), "estDedans", "false", 0, 1, Liaison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMonde_Personnes(), this.getPersonne(), null, "personnes", null, 0, -1, Monde.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(personneEClass, Personne.class, "Personne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersonne_Nom(), ecorePackage.getEString(), "nom", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPersonne_Statut(), ecorePackage.getEString(), "statut", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPersonne_Liaisons(), this.getLiaison(), null, "liaisons", null, 0, -1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPersonne_Pos(), this.getEPoint(), "pos", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		// Initialize data types
-		initEDataType(ePointEDataType, Point.class, "EPoint", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPersonne_Batiments(), this.getBatiment(), this.getBatiment_Personnes(), "batiments", null, 0, -1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

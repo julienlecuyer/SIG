@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import sig.Batiment;
 import sig.SigPackage;
 import sig.Ville;
-import sig.Zone;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,6 @@ import sig.Zone;
  * <ul>
  *   <li>{@link sig.impl.VilleImpl#getBatiments <em>Batiments</em>}</li>
  *   <li>{@link sig.impl.VilleImpl#getNom <em>Nom</em>}</li>
- *   <li>{@link sig.impl.VilleImpl#getZone <em>Zone</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,16 +66,6 @@ public class VilleImpl extends MinimalEObjectImpl.Container implements Ville {
 	 * @ordered
 	 */
 	protected String nom = NOM_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getZone() <em>Zone</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getZone()
-	 * @generated
-	 * @ordered
-	 */
-	protected Zone zone;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,56 +124,11 @@ public class VilleImpl extends MinimalEObjectImpl.Container implements Ville {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Zone getZone() {
-		return zone;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetZone(Zone newZone, NotificationChain msgs) {
-		Zone oldZone = zone;
-		zone = newZone;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SigPackage.VILLE__ZONE, oldZone, newZone);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setZone(Zone newZone) {
-		if (newZone != zone) {
-			NotificationChain msgs = null;
-			if (zone != null)
-				msgs = ((InternalEObject)zone).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SigPackage.VILLE__ZONE, null, msgs);
-			if (newZone != null)
-				msgs = ((InternalEObject)newZone).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SigPackage.VILLE__ZONE, null, msgs);
-			msgs = basicSetZone(newZone, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SigPackage.VILLE__ZONE, newZone, newZone));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SigPackage.VILLE__BATIMENTS:
 				return ((InternalEList<?>)getBatiments()).basicRemove(otherEnd, msgs);
-			case SigPackage.VILLE__ZONE:
-				return basicSetZone(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,8 +145,6 @@ public class VilleImpl extends MinimalEObjectImpl.Container implements Ville {
 				return getBatiments();
 			case SigPackage.VILLE__NOM:
 				return getNom();
-			case SigPackage.VILLE__ZONE:
-				return getZone();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,9 +165,6 @@ public class VilleImpl extends MinimalEObjectImpl.Container implements Ville {
 			case SigPackage.VILLE__NOM:
 				setNom((String)newValue);
 				return;
-			case SigPackage.VILLE__ZONE:
-				setZone((Zone)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -245,9 +183,6 @@ public class VilleImpl extends MinimalEObjectImpl.Container implements Ville {
 			case SigPackage.VILLE__NOM:
 				setNom(NOM_EDEFAULT);
 				return;
-			case SigPackage.VILLE__ZONE:
-				setZone((Zone)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -264,8 +199,6 @@ public class VilleImpl extends MinimalEObjectImpl.Container implements Ville {
 				return batiments != null && !batiments.isEmpty();
 			case SigPackage.VILLE__NOM:
 				return NOM_EDEFAULT == null ? nom != null : !NOM_EDEFAULT.equals(nom);
-			case SigPackage.VILLE__ZONE:
-				return zone != null;
 		}
 		return super.eIsSet(featureID);
 	}
