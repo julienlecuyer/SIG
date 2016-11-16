@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<sig:Monde xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sig="http://fr.ubo.jl.sig" xsi:schemaLocation="http://fr.ubo.jl.sig sig.ecore">
-  <villes nom="Brest">
-    <batiments xsi:type="sig:Travail" adresse="46 Rue Paul Masson" personnes="//@personnes.0"/>
-    <batiments xsi:type="sig:Soins" adresse="Morvan" personnes="//@personnes.0"/>
-  </villes>
-  <personnes nom="Julien L&#xe9;cuyer" statut="Autoentrepreneur" batiments="//@villes.0/@batiments.0 //@villes.0/@batiments.1"/>
-</sig:Monde>

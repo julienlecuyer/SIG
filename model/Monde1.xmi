@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sig:Monde xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sig="http://fr.ubo.jl.sig" xsi:schemaLocation="http://fr.ubo.jl.sig sig.ecore">
+  <villes nom="Brest">
+    <batiments xsi:type="sig:Travail" adresse="Triskalia"/>
+    <batiments xsi:type="sig:Travail" adresse="CGI"/>
+    <batiments xsi:type="sig:Etude" adresse="UBO"/>
+    <batiments xsi:type="sig:Etude" adresse="IUT"/>
+    <batiments xsi:type="sig:Soins" adresse="Hopital"/>
+    <batiments xsi:type="sig:Soins" adresse="Medecn"/>
+  </villes>
+  <villes nom="Paris"/>
+</sig:Monde>
