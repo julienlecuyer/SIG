@@ -8,6 +8,7 @@
     <genClasses ecoreClass="sig.ecore#//Ville">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Ville/batiments"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Ville/nom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Ville/personnes"/>
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Batiment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Batiment/adresse"/>
@@ -18,7 +19,6 @@
     <genClasses ecoreClass="sig.ecore#//Soins"/>
     <genClasses ecoreClass="sig.ecore#//Monde">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Monde/villes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sig.ecore#//Monde/personnes"/>
     </genClasses>
     <genClasses ecoreClass="sig.ecore#//Personne">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sig.ecore#//Personne/nom"/>
