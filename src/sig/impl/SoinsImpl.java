@@ -11,8 +11,6 @@ import sig.Soins;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Soins</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

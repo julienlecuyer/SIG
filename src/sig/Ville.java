@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link sig.Ville#getBatiments <em>Batiments</em>}</li>
  *   <li>{@link sig.Ville#getNom <em>Nom</em>}</li>
  *   <li>{@link sig.Ville#getPersonnes <em>Personnes</em>}</li>
  * </ul>
- * </p>
  *
  * @see sig.SigPackage#getVille()
  * @model

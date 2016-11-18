@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link sig.Monde#getVilles <em>Villes</em>}</li>
  * </ul>
- * </p>
  *
  * @see sig.SigPackage#getMonde()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nomVilleUnique'"

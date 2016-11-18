@@ -436,7 +436,7 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 		  (personneEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "NombreBatiments EtudeOuTravail"
+			 "constraints", "NombreBatiments EtudeOuTravail nomPersonneUnique"
 		   });
 	}
 
@@ -459,7 +459,8 @@ public class SigPackageImpl extends EPackageImpl implements SigPackage {
 		   source, 
 		   new String[] {
 			 "NombreBatiments", "\n\t\t\tself.batiments->selectByType(Etude)->size() <= 1\n\t\t\tand \n\t\t\tself.batiments->selectByType(Travail)->size() <= 1 \n\t\t\tand \n\t\t\tself.batiments->selectByType(Soins)->size() <= 2",
-			 "EtudeOuTravail", "\n\t\t\tself.batiments->forAll(b1, b2:Batiment |\n\t\t \t\t((b1.oclIsTypeOf(Travail) or b1.oclIsTypeOf(Etude) = false)  and ( b2.oclIsTypeOf(Travail) or b2.oclIsTypeOf(Etude) = false )) \n\t\t \tor \n\t\t \t\t((b1.oclIsTypeOf(Etude) or b1.oclIsTypeOf(Etude) = false)  and (b2.oclIsTypeOf(Etude) or b2.oclIsTypeOf(Travail) = false ))\n\t\t)"
+			 "EtudeOuTravail", "\n\t\t\tself.batiments->forAll(b1, b2:Batiment |\n\t\t \t\t((b1.oclIsTypeOf(Travail) or b1.oclIsTypeOf(Etude) = false)  and ( b2.oclIsTypeOf(Travail) or b2.oclIsTypeOf(Etude) = false )) \n\t\t \tor \n\t\t \t\t((b1.oclIsTypeOf(Etude) or b1.oclIsTypeOf(Etude) = false)  and (b2.oclIsTypeOf(Etude) or b2.oclIsTypeOf(Travail) = false ))\n\t\t)",
+			 "nomPersonneUnique", "\n\t\t\tPersonne.allInstances()->forAll(p1:Personne, p2:Personne | p1<>p2 implies p1.nom<>p2.nom)"
 		   });
 	}
 

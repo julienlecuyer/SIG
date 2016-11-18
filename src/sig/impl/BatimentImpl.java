@@ -28,11 +28,11 @@ import sig.SigPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link sig.impl.BatimentImpl#getAdresse <em>Adresse</em>}</li>
  *   <li>{@link sig.impl.BatimentImpl#getPersonnes <em>Personnes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -29,12 +29,12 @@ import sig.Ville;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link sig.impl.VilleImpl#getBatiments <em>Batiments</em>}</li>
  *   <li>{@link sig.impl.VilleImpl#getNom <em>Nom</em>}</li>
  *   <li>{@link sig.impl.VilleImpl#getPersonnes <em>Personnes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

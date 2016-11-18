@@ -218,6 +218,7 @@ public class SigValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(personne, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePersonne_NombreBatiments(personne, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePersonne_EtudeOuTravail(personne, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePersonne_nomPersonneUnique(personne, diagnostics, context);
 		return result;
 	}
 
@@ -284,6 +285,36 @@ public class SigValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 				 "EtudeOuTravail",
 				 PERSONNE__ETUDE_OU_TRAVAIL__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the nomPersonneUnique constraint of '<em>Personne</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String PERSONNE__NOM_PERSONNE_UNIQUE__EEXPRESSION = "\n" +
+		"\t\t\tPersonne.allInstances()->forAll(p1:Personne, p2:Personne | p1<>p2 implies p1.nom<>p2.nom)";
+
+	/**
+	 * Validates the nomPersonneUnique constraint of '<em>Personne</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePersonne_nomPersonneUnique(Personne personne, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(SigPackage.Literals.PERSONNE,
+				 personne,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "nomPersonneUnique",
+				 PERSONNE__NOM_PERSONNE_UNIQUE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

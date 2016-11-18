@@ -26,10 +26,10 @@ import sig.Ville;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link sig.impl.MondeImpl#getVilles <em>Villes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

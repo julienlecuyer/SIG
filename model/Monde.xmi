@@ -3,4 +3,11 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:sig="http://fr.ubo.jl.sig"
-    xsi:schemaLocation="http://fr.ubo.jl.sig sig.ecore"/>
+    xsi:schemaLocation="http://fr.ubo.jl.sig sig.ecore">
+  <villes nom="Brest">
+    <personnes
+        nom="bb"/>
+    <personnes
+        nom="aa"/>
+  </villes>
+</sig:Monde>

@@ -13,16 +13,16 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link sig.Personne#getNom <em>Nom</em>}</li>
  *   <li>{@link sig.Personne#getStatut <em>Statut</em>}</li>
  *   <li>{@link sig.Personne#getBatiments <em>Batiments</em>}</li>
  * </ul>
- * </p>
  *
  * @see sig.SigPackage#getPersonne()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NombreBatiments EtudeOuTravail'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NombreBatiments='\n\t\t\tself.batiments->selectByType(Etude)->size() <= 1\n\t\t\tand \n\t\t\tself.batiments->selectByType(Travail)->size() <= 1 \n\t\t\tand \n\t\t\tself.batiments->selectByType(Soins)->size() <= 2' EtudeOuTravail='\n\t\t\tself.batiments->forAll(b1, b2:Batiment |\n\t\t \t\t((b1.oclIsTypeOf(Travail) or b1.oclIsTypeOf(Etude) = false)  and ( b2.oclIsTypeOf(Travail) or b2.oclIsTypeOf(Etude) = false )) \n\t\t \tor \n\t\t \t\t((b1.oclIsTypeOf(Etude) or b1.oclIsTypeOf(Etude) = false)  and (b2.oclIsTypeOf(Etude) or b2.oclIsTypeOf(Travail) = false ))\n\t\t)'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NombreBatiments EtudeOuTravail nomPersonneUnique'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot NombreBatiments='\n\t\t\tself.batiments->selectByType(Etude)->size() <= 1\n\t\t\tand \n\t\t\tself.batiments->selectByType(Travail)->size() <= 1 \n\t\t\tand \n\t\t\tself.batiments->selectByType(Soins)->size() <= 2' EtudeOuTravail='\n\t\t\tself.batiments->forAll(b1, b2:Batiment |\n\t\t \t\t((b1.oclIsTypeOf(Travail) or b1.oclIsTypeOf(Etude) = false)  and ( b2.oclIsTypeOf(Travail) or b2.oclIsTypeOf(Etude) = false )) \n\t\t \tor \n\t\t \t\t((b1.oclIsTypeOf(Etude) or b1.oclIsTypeOf(Etude) = false)  and (b2.oclIsTypeOf(Etude) or b2.oclIsTypeOf(Travail) = false ))\n\t\t)' nomPersonneUnique='\n\t\t\tPersonne.allInstances()->forAll(p1:Personne, p2:Personne | p1<>p2 implies p1.nom<>p2.nom)'"
  * @generated
  */
 public interface Personne extends EObject {

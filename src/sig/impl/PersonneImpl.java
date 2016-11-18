@@ -28,12 +28,12 @@ import sig.SigPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link sig.impl.PersonneImpl#getNom <em>Nom</em>}</li>
  *   <li>{@link sig.impl.PersonneImpl#getStatut <em>Statut</em>}</li>
  *   <li>{@link sig.impl.PersonneImpl#getBatiments <em>Batiments</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
