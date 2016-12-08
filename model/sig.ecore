@@ -33,12 +33,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Personne">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="NombreBatiments EtudeOuTravail nomPersonneUnique"/>
+      <details key="constraints" value="NombreBatiments EtudeOuTravail"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="NombreBatiments" value="&#xA;&#x9;&#x9;&#x9;self.batiments->selectByType(Etude)->size() &lt;= 1&#xA;&#x9;&#x9;&#x9;and &#xA;&#x9;&#x9;&#x9;self.batiments->selectByType(Travail)->size() &lt;= 1 &#xA;&#x9;&#x9;&#x9;and &#xA;&#x9;&#x9;&#x9;self.batiments->selectByType(Soins)->size() &lt;= 2"/>
       <details key="EtudeOuTravail" value="&#xA;&#x9;&#x9;&#x9;self.batiments->forAll(b1, b2:Batiment |&#xA;&#x9;&#x9; &#x9;&#x9;((b1.oclIsTypeOf(Travail) or b1.oclIsTypeOf(Etude) = false)  and ( b2.oclIsTypeOf(Travail) or b2.oclIsTypeOf(Etude) = false )) &#xA;&#x9;&#x9; &#x9;or &#xA;&#x9;&#x9; &#x9;&#x9;((b1.oclIsTypeOf(Etude) or b1.oclIsTypeOf(Etude) = false)  and (b2.oclIsTypeOf(Etude) or b2.oclIsTypeOf(Travail) = false ))&#xA;&#x9;&#x9;)"/>
-      <details key="nomPersonneUnique" value="&#xA;&#x9;&#x9;&#x9;Personne.allInstances()->forAll(p1:Personne, p2:Personne | p1&lt;>p2 implies p1.nom&lt;>p2.nom)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="statut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
